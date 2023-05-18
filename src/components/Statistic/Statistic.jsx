@@ -50,9 +50,11 @@ const StatListStyled = styled.ul`
   flex-grow: 1;
   margin-top: 40px;
   height: calc(100% - 40px);
-
-  background-color: #${Math.floor(Math.random() * 16777215).toString(16)};
 `;
+const getRandomHexColor = idx =>
+  `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
 const ItemStyled = styled.li`
   display: flex;
   flex-direction: column;
@@ -61,6 +63,8 @@ const ItemStyled = styled.li`
   font-weight: 700;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  width: 100%;
+  background-color: ${props => getRandomHexColor(props.index)};
 `;
 Statistic.defaultProps = {
   title: '',
